@@ -1,0 +1,116 @@
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f3f4f6;
+  margin: 0;
+  padding: 2rem;
+  color: #1f2937;
+}
+
+.form-wrapper {
+  max-width: 640px;
+  margin: auto;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  color: #B91B21;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+label, legend {
+  font-weight: 600;
+  margin: 1rem 0 0.25rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+input[type="file"],
+input[type="range"],
+button {
+  font-size: 1.1rem;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 20px rgba(185, 27, 33, 0.08);
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+}
+
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 1rem;
+  border: none;
+  padding: 0;
+}
+
+fieldset label {
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fff;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(185, 27, 33, 0.08);
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+#budget-display {
+  display: block;
+  text-align: right;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+  color: #EB6200;
+}
+
+button {
+  background-color: #B91B21;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #a0171c;
+}
+
+@media (max-width: 600px) {
+  .form-wrapper {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 1rem;
+  }
+
+  fieldset label {
+    flex: 1 1 100%;
+  }
+}
