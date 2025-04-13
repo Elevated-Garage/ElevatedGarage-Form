@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elevated Garage Contact</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="form-wrapper">
+    <form name="garage-contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="garage-contact" />
+      <input type="hidden" name="redirect" value="thank-you.html" />
+
+      <h1>Let's Design Your Dream Garage</h1>
+
+      <label for="name">Full Name</label>
+      <input type="text" name="Full Name" id="name" required />
+
+      <label for="email">Email Address</label>
+      <input type="email" name="Email Address" id="email" required />
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" name="Phone Number" id="phone" required />
+
+      <label for="garage_goal">Garage Goals</label>
+      <select name="Garage Goals" id="garage_goal" required>
+        <option value="">-- Select --</option>
+        <option value="Storage">Storage</option>
+        <option value="Gym">Gym</option>
+        <option value="Workshop">Workshop</option>
+        <option value="Luxury Showroom">Luxury Showroom</option>
+        <option value="Wellness Center">Wellness Center</option>
+      </select>
+
+      <fieldset>
+        <legend>Must-Haves</legend>
+        <label><input type="checkbox" name="Must Haves" value="Cabinets" /> Cabinets</label>
+        <label><input type="checkbox" name="Must Haves" value="Flooring" /> Flooring</label>
+        <label><input type="checkbox" name="Must Haves" value="Lighting" /> Lighting</label>
+        <label><input type="checkbox" name="Must Haves" value="Sauna" /> Sauna</label>
+        <label><input type="checkbox" name="Must Haves" value="Cold Plunge" /> Cold Plunge</label>
+        <label><input type="checkbox" name="Must Haves" value="Home Gym" /> Home Gym</label>
+      </fieldset>
+
+      <label>Upload Garage Photos (optional)</label>
+      <input type="file" name="Garage Photos" accept="image/*" />
+
+      <label for="budget">Budget: <span id="budget-display">$25,000</span></label>
+      <input type="range" name="Budget Raw" id="budget" min="5000" max="50000" step="1000" value="25000" />
+      <input type="hidden" name="Formatted Budget" id="budget-hidden" />
+
+      <label for="start_date">Desired Start Date</label>
+      <input type="date" name="Start Date" id="start_date" />
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const budgetInput = document.getElementById("budget");
+    const budgetDisplay = document.getElementById("budget-display");
+    const budgetHidden = document.getElementById("budget-hidden");
+
+    function formatUSD(value) {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      }).format(value);
+    }
+
+    function updateBudgetFields(val) {
+      const formatted = formatUSD(val);
+      budgetDisplay.textContent = formatted;
+      budgetHidden.value = formatted;
+    }
+
+    budgetInput.addEventListener("input", () => {
+      updateBudgetFields(budgetInput.value);
+    });
+
+    updateBudgetFields(budgetInput.value);
+  </script>
+</body>
+</html>
